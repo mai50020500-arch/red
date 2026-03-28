@@ -1,0 +1,10 @@
+Red_King_C2/ghost/target/
+**/target/
+**/__pycache__/
+
+__pycache__/
+*.pyc
+
+__pycache__/
+*.pyc
+Red_King_C2/brain/validate_keys.py

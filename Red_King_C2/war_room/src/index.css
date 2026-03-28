@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-[#00f3ff] font-['Rajdhani'] antialiased overflow-hidden;
+    background-image: 
+      linear-gradient(rgba(0, 255, 60, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 60, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-[rgba(20,0,0,0.6)] backdrop-blur-md border border-red-500/40 shadow-[0_0_15px_rgba(255,0,0,0.15)];
+  }
+
+  .text-neon-cyan {
+    @apply text-[#00f3ff] drop-shadow-[0_0_5px_rgba(0,243,255,0.5)];
+  }
+
+  .text-neon-red {
+    @apply text-[#ff003c] drop-shadow-[0_0_5px_rgba(255,0,60,0.5)];
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-black/50;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-red-900/50 rounded;
+  }
+}
+
+/* CRT Scanline Animation */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 255, 60, 0.02) 50%,
+    rgba(0, 255, 60, 0.05) 50.5%,
+    transparent 51%
+  );
+  background-size: 100% 4px;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}

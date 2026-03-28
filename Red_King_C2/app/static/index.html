@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>RED KING C2 | Sovereign Console</title>
+    <script src='https://cdn.tailwindcss.com'></script>
+    <link href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono&display=swap' rel='stylesheet'>
+    <style>
+        :root { --neon-red: #ff0000; --dark-bg: #050505; }
+        body { background-color: var(--dark-bg); color: white; font-family: 'JetBrains Mono', monospace; overflow: hidden; }
+        .cyber-border { border: 1px solid var(--neon-red); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); }
+        .glitch-text { font-family: 'Orbitron', sans-serif; text-shadow: 2px 2px var(--neon-red); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .scanline { background: linear-gradient(to bottom, rgba(255,0,0,0) 50%, rgba(255,0,0,0.1) 50%); background-size: 100% 4px; position: fixed; inset: 0; pointer-events: none; }
+    </style>
+</head>
+<body class='p-4'>
+    <div class='scanline'></div>
+    <header class='flex justify-between items-center mb-6 p-4 cyber-border bg-black/50'>
+        <h1 class='text-2xl font-bold glitch-text text-red-600'>RED KING C2 // v2.0</h1>
+        <div class='flex gap-4 items-center'>
+            <span class='text-xs text-red-500'>ENCRYPTION: AES-256</span>
+            <div class='h-3 w-3 rounded-full bg-red-600 animate-ping'></div>
+        </div>
+    </header>
+    <div class='grid grid-cols-12 gap-4 h-[80vh]'>
+        <aside class='col-span-2 cyber-border p-4 flex flex-col gap-4 bg-black/40'>
+            <button class='p-2 border border-red-900 hover:bg-red-900 transition'>DASHBOARD</button>
+            <button class='p-2 border border-red-900 hover:bg-red-900 transition'>AGENTS</button>
+            <button class='p-2 border border-red-900 hover:bg-red-900 transition'>PAYLOADS</button>
+        </aside>
+        <main class='col-span-10 cyber-border p-4 bg-black/60 overflow-y-auto'>
+            <h2 class='text-red-500 uppercase mb-4'>System Status: Active</h2>
+            <div id='terminal' class='text-sm space-y-1'>
+                <p class='text-green-500'>[SYSTEM] Connection established.</p>
+                <p class='text-blue-400'>[INFO] Ready for commands.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

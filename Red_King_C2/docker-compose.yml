@@ -1,0 +1,27 @@
+# Red King War Room Deployment (Sovereign Synthesis)
+version: '3.8'
+
+services:
+  brain:
+    build: 
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "9001:9001"
+    environment:
+      - PORT=9001
+      - HOST=0.0.0.0
+    volumes:
+      - ./persistence:/app/persistence
+      - ./loot:/app/loot
+    restart: always
+
+  war-room:
+    build:
+      context: ./war_room
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5555:5173"
+    depends_on:
+      - brain
+    restart: always

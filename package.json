@@ -1,0 +1,13 @@
+{
+  "name": "red-monorepo",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "backend": "cd Red_King_C2 && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "frontend": "cd Red_King_C2/war_room && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
