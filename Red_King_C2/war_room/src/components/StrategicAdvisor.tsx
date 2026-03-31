@@ -15,7 +15,7 @@ const StrategicAdvisor = () => {
 
   const fetchStrategy = async () => {
     try {
-      const res = await fetch("http://localhost:9001/api/strategy/analyze");
+      const res = await fetch("/api/strategy/analyze");
       if (res.ok) {
         const data = await res.json();
         setStrategy(data);

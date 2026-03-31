@@ -28,7 +28,7 @@ const ForensicsPanel: React.FC<ForensicsPanelProps> = ({ isOpen, onClose }) => {
     formData.append('file', file);
 
     try {
-      const res = await fetch('http://localhost:9000/api/forensics/upload', {
+      const res = await fetch('/api/forensics/upload', {
         method: 'POST',
         body: formData,
       });
@@ -46,7 +46,7 @@ const ForensicsPanel: React.FC<ForensicsPanelProps> = ({ isOpen, onClose }) => {
       const demoUrl = "https://admin-portal.demo.local/dashboard"; 
       
       try {
-          await fetch('http://localhost:9000/api/war/resurrect', {
+          await fetch('/api/war/resurrect', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({

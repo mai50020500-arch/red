@@ -45,7 +45,7 @@ const Console: React.FC = () => {
         const args = cmd.split(' ');
         const primaryCmd = args[0].toLowerCase();
         
-        const backend = "http://localhost:9001/api";
+        const backend = "/api";
 
         try {
             switch (primaryCmd) {

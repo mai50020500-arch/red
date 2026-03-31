@@ -22,7 +22,7 @@ export const createAlertManager = (dispatch: Function) => {
 
 export const fetchIntel = async (): Promise<Alert[]> => {
   try {
-    const res = await fetch('http://localhost:9001/api/intel');
+    const res = await fetch('/api/intel');
     const data = await res.json();
     
     // Map backend intel types to UI alert severities

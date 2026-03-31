@@ -18,7 +18,7 @@ const StrategicOverlay: React.FC<StrategicOverlayProps> = ({ isOpen, onClose, st
   const toggleAutonomy = async () => {
     try {
         const newState = !isAutonomyEnabled;
-        await fetch('http://localhost:9001/api/settings/autonomy', {
+        await fetch('/api/settings/autonomy', {
             method: 'POST',
             body: JSON.stringify({ enabled: newState }),
             headers: {'Content-Type': 'application/json'}
@@ -72,7 +72,7 @@ const StrategicOverlay: React.FC<StrategicOverlayProps> = ({ isOpen, onClose, st
 
             {/* Report Download */}
             <a 
-                href="http://localhost:9001/api/mission/report" 
+                href="/api/mission/report" 
                 target="_blank" 
                 className="text-xs font-mono text-zinc-500 hover:text-red-400 border-b border-transparent hover:border-red-400 transition-all uppercase tracking-widest"
             >

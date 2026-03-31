@@ -26,7 +26,7 @@ const IntelFeed = () => {
     useEffect(() => {
         const fetchTargets = async () => {
             try {
-                const res = await fetch('http://localhost:9001/api/dna_map');
+                const res = await fetch('/api/dna_map');
                 const data = await res.json();
                 if (Array.isArray(data)) {
                     setTargets(data);
@@ -46,7 +46,7 @@ const IntelFeed = () => {
     const triggerGhostRecon = async (ip: string) => {
         setReconStatus(prev => ({ ...prev, [ip]: 'SCANNING...' }));
         try {
-            const res = await fetch('http://localhost:9001/api/ghost_recon', {
+            const res = await fetch('/api/ghost_recon', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ip })
@@ -76,7 +76,7 @@ const IntelFeed = () => {
             // Get title from recon status if available, otherwise just use IP
             const reconTitle = reconStatus[target.ip] || "Unknown";
 
-            const res = await fetch('http://localhost:9001/api/ai_assessment', {
+            const res = await fetch('/api/ai_assessment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

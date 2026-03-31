@@ -18,7 +18,7 @@ const StealthPanel = () => {
 
   const fetchRedirectors = async () => {
     try {
-      const res = await fetch("http://localhost:9001/api/stealth/redirectors");
+      const res = await fetch("/api/stealth/redirectors");
       if (res.ok) {
         const data = await res.json();
         setRedirectors(data);
@@ -34,7 +34,7 @@ const StealthPanel = () => {
 
   const handleRegister = async () => {
     try {
-      const res = await fetch("http://localhost:9001/api/stealth/redirectors/register", {
+      const res = await fetch("/api/stealth/redirectors/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ip: newIP, hostname: newHost })
@@ -50,7 +50,7 @@ const StealthPanel = () => {
 
   const handleBurn = async (id: string) => {
     try {
-      const res = await fetch("http://localhost:9001/api/stealth/redirectors/burn", {
+      const res = await fetch("/api/stealth/redirectors/burn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id })

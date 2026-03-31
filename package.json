@@ -1,13 +1,16 @@
 {
-  "name": "red-monorepo",
+  "name": "red-root",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "backend": "cd Red_King_C2 && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
-    "frontend": "cd Red_King_C2/war_room && npm run dev",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "backend": "cd Red_King_C2 && python -m uvicorn app.main:app --host 0.0.0.0 --port 8000",
+    "frontend": "cd Red_King_C2/war_room && npm run dev -- --host 0.0.0.0 --port 5173",
+    "dev": "concurrently -k -n backend,frontend -c blue,green \"npm run backend\" \"npm run frontend\"",
+    "build": "cd Red_King_C2/war_room && npm run build",
+    "lint": "cd Red_King_C2/war_room && npm run lint"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^9.0.1"
   }
 }

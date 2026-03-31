@@ -8,3 +8,4 @@ __pycache__/
 __pycache__/
 *.pyc
 Red_King_C2/brain/validate_keys.py
+node_modules

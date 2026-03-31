@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import IntelFeed from './components/IntelFeed';
 import { Skull, Activity } from 'lucide-react';
 import { AlertProvider } from './alerts/AlertContext';
@@ -16,8 +16,6 @@ function App() {
   return (
     <AlertProvider>
       <div className="flex flex-col h-screen bg-[#0a0a0a] text-[#e0e0e0] font-mono overflow-hidden">
-
-        {/* Header */}
         <header className="px-6 py-4 border-b border-red-500/20 flex justify-between items-center bg-black/60">
           <div className="flex items-center gap-4">
             <h1 className="text-2xl font-black tracking-tighter text-red-500">
@@ -25,7 +23,9 @@ function App() {
             </h1>
             <div className="flex items-center gap-2 border-l border-zinc-800 pl-4">
               <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-[10px] text-red-500/60 font-bold tracking-widest uppercase">System Online</span>
+              <span className="text-[10px] text-red-500/60 font-bold tracking-widest uppercase">
+                System Online
+              </span>
             </div>
           </div>
 
@@ -41,10 +41,7 @@ function App() {
           </div>
         </header>
 
-        {/* Main Content Area */}
         <div className="flex flex-1 overflow-hidden p-6 gap-6">
-
-          {/* Left Panel: Swarm & Jobs */}
           <div className="w-80 flex flex-col gap-6">
             <div className="flex-1 border border-red-500/20 rounded-lg overflow-hidden bg-black/20 backdrop-blur min-h-[300px]">
               <SwarmController onMonitor={(id) => setMonitoringAgent(id)} />
@@ -57,12 +54,10 @@ function App() {
             </div>
           </div>
 
-          {/* Center: Main Feed */}
           <div className="flex-1 border border-red-500/20 rounded-lg overflow-hidden bg-black/20 backdrop-blur flex flex-col">
             <IntelFeed />
           </div>
 
-          {/* Right Panel: Alerts & Strategy */}
           <div className="w-80 flex flex-col gap-6">
             <div className="flex-1 border border-red-500/20 rounded-lg overflow-hidden bg-black/20 backdrop-blur">
               <AlertPanel />
@@ -74,13 +69,12 @@ function App() {
               <StrategicAdvisor />
             </div>
           </div>
-
         </div>
 
         {monitoringAgent && (
-          <LiveViewport 
-            agentId={monitoringAgent} 
-            onClose={() => setMonitoringAgent(null)} 
+          <LiveViewport
+            agentId={monitoringAgent}
+            onClose={() => setMonitoringAgent(null)}
           />
         )}
       </div>

@@ -24,7 +24,7 @@ const AchievementPanel = () => {
 
   const fetchAchievements = async () => {
     try {
-      const res = await fetch("http://localhost:9001/api/achievements");
+      const res = await fetch("/api/achievements");
       if (res.ok) {
         const data = await res.json();
         setAchievements(data);

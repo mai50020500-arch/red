@@ -30,7 +30,7 @@ const NeuralMesh = () => {
     useEffect(() => {
         const fetchTopology = async () => {
             try {
-                const res = await fetch("http://localhost:9001/api/graph");
+                const res = await fetch("/api/graph");
                 if (res.ok) {
                     const data = await res.json();
                     setGraphData(data);
@@ -64,9 +64,9 @@ const NeuralMesh = () => {
                 nodeLabel="label"
                 linkColor={link => link.is_shadow ? '#444444' : (link.dashed ? '#00f3ff' : '#ffffff')}
                 linkWidth={link => link.is_shadow ? 0.2 : (link.dashed ? 0.3 : 0.5)}
-                linkOpacity={link => link.is_shadow ? 0.1 : (link.dashed ? 0.2 : 0.3)}
-                linkDashArray={link => link.dashed ? 2 : 0}
-                linkDashGap={link => link.dashed ? 1 : 0}
+                linkOpacity={0.5}
+                // linkDashArray={link => link.dashed ? 2 : 0}
+                // linkDashGap={link => link.dashed ? 1 : 0}
                 linkDirectionalArrowLength={link => link.is_shadow ? 0 : 3}
                 linkDirectionalArrowRelPos={1}
                 linkDirectionalParticles={link => link.is_shadow ? 2 : 0}

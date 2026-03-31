@@ -14,7 +14,7 @@ const SwarmJobMonitor = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch("http://localhost:9001/api/swarm/jobs");
+      const res = await fetch("/api/swarm/jobs");
       if (res.ok) {
         const data = await res.json();
         setJobs(data);

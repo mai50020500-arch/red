@@ -22,10 +22,10 @@ const SwarmController = ({ onMonitor }: SwarmControllerProps) => {
 
   const fetchData = async () => {
     try {
-      const sRes = await fetch("http://localhost:9001/api/swarm/stats");
+      const sRes = await fetch("/api/swarm/stats");
       if (sRes.ok) setStats(await sRes.json());
       
-      const aRes = await fetch("http://localhost:9001/api/agents");
+      const aRes = await fetch("/api/agents");
       if (aRes.ok) setAgents(await aRes.json());
     } catch (e) {}
   };
@@ -39,7 +39,7 @@ const SwarmController = ({ onMonitor }: SwarmControllerProps) => {
   const handleSwarmExecute = async () => {
     setExecuting(true);
     try {
-      const res = await fetch("http://localhost:9001/api/swarm/execute", {
+      const res = await fetch("/api/swarm/execute", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

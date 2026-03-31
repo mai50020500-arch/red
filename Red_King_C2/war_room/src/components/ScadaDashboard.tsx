@@ -16,7 +16,7 @@ const ScadaDashboard: React.FC = () => {
     setStriking(ip);
     try {
       // Phase 35 Kinetic Strike
-      await fetch('http://localhost:9001/api/hive/queue', {
+      await fetch('/api/hive/queue', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ agent_id: '770cfb36-e874-4b7c-9d1c-f2f261e42815', command: 'scada_blackout' })
